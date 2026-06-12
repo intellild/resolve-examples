@@ -21,6 +21,21 @@
           }
         }
       },
+      "build-rspack": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rspack build --config rspack.config.js",
+          "cwd": "apps/resolve-examples"
+        },
+        "configurations": {
+          "development": {
+            "command": "rspack build --config rspack.config.js --mode development"
+          },
+          "production": {
+            "command": "rspack build --config rspack.config.js --mode production"
+          }
+        }
+      },
       "prune-lockfile": {
         "dependsOn": [
           "build"

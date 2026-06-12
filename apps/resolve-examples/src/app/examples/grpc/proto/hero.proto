@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package hero;
+
+import "common.proto";
+
+service HeroService {
+  rpc FindHero (FindHeroRequest) returns (Hero) {}
+}
+
+message FindHeroRequest {
+  string id = 1;
+}
+
+message Hero {
+  string id = 1;
+  string name = 2;
+}
