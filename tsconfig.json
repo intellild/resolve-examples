@@ -8,6 +8,9 @@
     },
     {
       "path": "./apps/resolve-examples"
+    },
+    {
+      "path": "./libs/loader-lib"
     }
   ]
 }

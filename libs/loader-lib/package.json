@@ -1,0 +1,40 @@
+{
+  "name": "@resolve-examples/loader-lib",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@resolve-examples/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./loader": {
+      "@resolve-examples/source": "./src/loader.ts",
+      "types": "./dist/loader.d.ts",
+      "import": "./dist/loader.js",
+      "default": "./dist/loader.js"
+    }
+  },
+  "nx": {
+    "name": "loader-lib",
+    "targets": {
+      "bundle-ncc": {
+        "executor": "nx:run-commands",
+        "outputs": ["{projectRoot}/dist-ncc"],
+        "options": {
+          "command": "ncc build src/index.ts --out dist-ncc --target es2022 --source-map --no-source-map-register --transpile-only",
+          "cwd": "libs/loader-lib"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

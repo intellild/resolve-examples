@@ -25,6 +25,7 @@
     "@swc/core": "~1.15.5",
     "@swc/helpers": "~0.5.18",
     "@types/node": "20.19.9",
+    "@vercel/ncc": "^0.38.4",
     "nx": "22.7.5",
     "prettier": "~3.6.2",
     "tslib": "^2.3.0",
