@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/resolve-examples-e2e"
+    },
+    {
+      "path": "./apps/resolve-examples"
+    }
+  ]
+}

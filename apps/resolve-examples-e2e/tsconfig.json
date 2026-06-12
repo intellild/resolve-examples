@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "out-tsc/@resolve-examples/resolve-examples-e2e",
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "noImplicitAny": false
+  },
+  "include": [
+    "jest.config.ts",
+    "src/**/*.ts"
+  ],
+  "references": []
+}
