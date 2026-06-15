@@ -11,6 +11,9 @@
     },
     {
       "path": "./libs/loader-lib"
+    },
+    {
+      "path": "./apps/crxjs-extension"
     }
   ]
 }
