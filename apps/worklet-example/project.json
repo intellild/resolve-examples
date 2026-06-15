@@ -1,0 +1,9 @@
+{
+  "name": "@resolve-examples/worklet-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/worklet-example/src",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project @resolve-examples/worklet-example --web",
+  "targets": {}
+}

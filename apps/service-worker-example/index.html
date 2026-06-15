@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Service worker code URL example</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Service worker code URL example</h1>
+      <p>
+        This example registers a TypeScript service worker through a code URL
+        expression that bundlers can treat as a generated entry.
+      </p>
+      <button id="register-service-worker" type="button">
+        Register service worker
+      </button>
+      <p id="status">Idle</p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

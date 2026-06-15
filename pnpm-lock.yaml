@@ -102,6 +102,8 @@ importers:
 
   apps/crxjs-extension: {}
 
+  apps/electron-example: {}
+
   apps/resolve-examples:
     dependencies:
       '@nestjs/common':
@@ -128,6 +130,10 @@ importers:
         version: 11.1.26(@nestjs/common@11.1.26(reflect-metadata@0.1.14)(rxjs@7.8.2))(@nestjs/core@11.1.26)(@nestjs/platform-express@11.1.26)
 
   apps/resolve-examples-e2e: {}
+
+  apps/service-worker-example: {}
+
+  apps/worklet-example: {}
 
   libs/loader-lib:
     dependencies:
