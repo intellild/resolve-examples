@@ -14,9 +14,11 @@ export interface GraphqlResolveExample {
 }
 
 export function createGraphqlResolveExample(): GraphqlResolveExample {
-  const schemaPath = require.resolve('./graphql/schema/hero.graphql');
+  const schemaPath = fileURLToPath(
+    new URL('./graphql/schema/hero.graphql', import.meta.url),
+  );
   const schemaPathFromImportMeta = fileURLToPath(
-    import.meta.resolve('./graphql/schema/hero.graphql'),
+    new URL('./graphql/schema/hero.graphql', import.meta.url),
   );
   const schemaDirectory = dirname(schemaPath);
 

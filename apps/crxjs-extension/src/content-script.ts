@@ -1,9 +1,7 @@
-// CRXJS main-world script loading currently uses the worker URL transform.
-import mainWorldScriptUrl from './main-world.ts?worker&url';
-
 const script = document.createElement('script');
+const mainWorldScriptUrl = new URL('./main-world.ts', import.meta.url);
 
-script.src = chrome.runtime.getURL(mainWorldScriptUrl);
+script.src = mainWorldScriptUrl.href;
 script.type = 'module';
 script.dataset.resolveExample = 'main-world';
 script.onload = () => script.remove();

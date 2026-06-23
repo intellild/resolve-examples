@@ -1,23 +1,20 @@
 # Worklet Code URL Example
 
-This app captures the AudioWorklet case where an API wants a URL for JavaScript code, not a static asset. The current example uses the worker-entry pipeline as a probe:
+This app captures the AudioWorklet case where an API wants a URL for JavaScript code, not a static asset. The example assumes bundlers treat `new URL('./meter.worklet.ts', import.meta.url)` as a generated code entry:
 
 ```ts
-new Worker(new URL('./meter.worklet.ts', import.meta.url), {
-  type: 'module',
-});
+const workletUrl = new URL('./meter.worklet.ts', import.meta.url);
+await audioContext.audioWorklet.addModule(workletUrl.href);
 ```
 
-The worker posts back its emitted URL, then the app passes that URL to `audioContext.audioWorklet.addModule(url)`.
-
-The desired future shape is a first-class code URL primitive:
+The desired ESM output shape preserves the `new URL` expression while rewriting the referenced module to the emitted worklet chunk:
 
 ```ts
-const workletUrl = import.meta.resolve('./meter.worklet.ts');
-await audioContext.audioWorklet.addModule(workletUrl);
+const workletUrl = new URL('./meter.worklet.output-chunk.js', import.meta.url);
+await audioContext.audioWorklet.addModule(workletUrl.href);
 ```
 
-After bundling, the call would still be a runtime resolve operation, but the specifier would point at the emitted worklet JavaScript file.
+CJS output keeps the current runtime path behavior. The important distinction is that the worklet is code with its own execution context, not an asset file.
 
 ## Related Issues
 

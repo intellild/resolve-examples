@@ -1,11 +1,10 @@
 import './styles.css';
 
-import serviceWorkerUrl from './app.service-worker.ts?worker&url';
-
 const status = document.querySelector<HTMLParagraphElement>('#status');
 const registerButton = document.querySelector<HTMLButtonElement>(
   '#register-service-worker',
 );
+const serviceWorkerUrl = new URL('./app.service-worker.ts', import.meta.url);
 
 async function registerServiceWorker() {
   if (!status || !registerButton) {
@@ -28,7 +27,7 @@ async function registerServiceWorker() {
       },
     );
 
-    status.textContent = `Registered ${registration.scope} from ${serviceWorkerUrl}`;
+    status.textContent = `Registered ${registration.scope} from ${serviceWorkerUrl.href}`;
   } catch (error) {
     status.textContent =
       error instanceof Error

@@ -14,9 +14,11 @@ export interface GrpcResolveExample {
 }
 
 export function createGrpcResolveExample(): GrpcResolveExample {
-  const protoPath = require.resolve('./grpc/proto/hero.proto');
+  const protoPath = fileURLToPath(
+    new URL('./grpc/proto/hero.proto', import.meta.url),
+  );
   const commonProtoPath = fileURLToPath(
-    import.meta.resolve('./grpc/proto/common.proto'),
+    new URL('./grpc/proto/common.proto', import.meta.url),
   );
 
   return {

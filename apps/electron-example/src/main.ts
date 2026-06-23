@@ -2,9 +2,9 @@ import { Worker } from 'node:worker_threads';
 
 import { app, BrowserWindow } from 'electron';
 
-// Desired future output shape:
-// require.resolve('./background-worker.js')
-const backgroundWorkerEntry = require.resolve('./background-worker.ts');
+// Desired ESM output shape:
+// new URL('./background-worker.output-chunk.js', import.meta.url)
+const backgroundWorkerEntry = new URL('./background-worker.ts', import.meta.url);
 
 function createWindow() {
   return new BrowserWindow({

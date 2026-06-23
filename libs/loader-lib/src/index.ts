@@ -1,4 +1,4 @@
-declare const require: NodeRequire;
+import { fileURLToPath } from 'node:url';
 
 export interface LoaderRule {
   test: RegExp;
@@ -15,7 +15,7 @@ export function createLoaderRule(): LoaderRule {
     test: /\.example$/,
     use: [
       {
-        loader: require.resolve('./loader.ts'),
+        loader: fileURLToPath(new URL('./loader.ts', import.meta.url)),
         options: {
           banner: 'resolved from loader-lib',
         },
